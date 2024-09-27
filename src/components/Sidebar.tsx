@@ -4,7 +4,7 @@ import MakeButton from "./MakeButton";
 
 const Sidebar: React.FC = () => {
   return (
-    <aside className="w-80 p-4 bg-white">
+    <aside className="w-75 p-4 bg-white">
       {/* "만들기" 버튼 */}
       <MakeButton />
 
