@@ -25,7 +25,6 @@ const WeekCalendar = () => {
     handleUpdateEvent,
     closeModal,
     getEventStyle,
-    getEventColor,
   } = useWeekCalendar();
 
   return (
@@ -93,9 +92,7 @@ const WeekCalendar = () => {
                 .map((event, eventIndex) => (
                   <div
                     key={eventIndex}
-                    className={`absolute text-white p-2 rounded-lg shadow-lg cursor-pointer ${getEventColor(
-                      event.type
-                    )} overflow-hidden text-ellipsis whitespace-nowrap`}
+                    className="absolute bg-blue-500 text-white p-2 rounded-lg shadow-lg cursor-pointer  overflow-hidden text-ellipsis whitespace-nowrap"
                     style={getEventStyle(event.startTime, event.endTime)}
                     onClick={() => handleEventClick(event)}
                   >

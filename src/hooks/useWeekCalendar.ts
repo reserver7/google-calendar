@@ -3,7 +3,7 @@ import { addDays, format, startOfWeek } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { removeEvent, updateEvent } from "@/redux/slices/calendarSlice";
-import { Event, TabType } from "@/types/types";
+import { Event } from "@/types/types";
 
 export const useWeekCalendar = () => {
   const dispatch = useDispatch();
@@ -99,18 +99,6 @@ export const useWeekCalendar = () => {
   }, []);
 
   // 이벤트 색상 반환
-  const getEventColor = useCallback((type: TabType) => {
-    switch (type) {
-      case "event":
-        return "bg-blue-800 opacity-80";
-      case "task":
-        return "bg-blue-500";
-      case "alert":
-        return "bg-green-900 opacity-80";
-      default:
-        return "bg-gray-500";
-    }
-  }, []);
 
   return {
     daysOfWeek,
@@ -127,6 +115,5 @@ export const useWeekCalendar = () => {
     handleUpdateEvent,
     closeModal,
     getEventStyle,
-    getEventColor,
   };
 };

@@ -9,6 +9,11 @@ import WeekCalendar from "../components/WeekCalendar";
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // 모달을 닫는 함수
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       {/* 상단 네비게이션 */}
@@ -24,7 +29,7 @@ const Home = () => {
         </div>
       </div>
       {/* 이벤트 추가 모달 */}
-      {isModalOpen && <AddEventModal />}
+      {isModalOpen && <AddEventModal onClose={handleCloseModal} />}
     </div>
   );
 };

@@ -20,9 +20,12 @@ const DatePicker = () => {
   );
   const [currentMonth, setCurrentMonth] = useState(currentMonthFromStore);
 
+  // Only update currentMonth if it's different from currentMonthFromStore
   useEffect(() => {
-    setCurrentMonth(currentMonthFromStore);
-  }, [currentMonthFromStore]);
+    if (!isSameMonth(currentMonth, currentMonthFromStore)) {
+      setCurrentMonth(currentMonthFromStore);
+    }
+  }, [currentMonthFromStore, currentMonth]);
 
   // 날짜 선택 핸들러
   const handleDaySelect = useCallback(
@@ -37,10 +40,13 @@ const DatePicker = () => {
   // 달력 이동 시 현재 표시되는 달을 업데이트
   const handleMonthChange = useCallback(
     (month: Date) => {
-      setCurrentMonth(month);
-      dispatch(setSelectedMonth(month.toISOString())); // Redux에 월 업데이트
+      // Only dispatch if the month has actually changed
+      if (!isSameMonth(month, currentMonth)) {
+        setCurrentMonth(month);
+        dispatch(setSelectedMonth(month.toISOString()));
+      }
     },
-    [dispatch]
+    [dispatch, currentMonth]
   );
 
   return (
