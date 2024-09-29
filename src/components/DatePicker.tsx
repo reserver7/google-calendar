@@ -20,7 +20,7 @@ const DatePicker = () => {
   );
   const [currentMonth, setCurrentMonth] = useState(currentMonthFromStore);
 
-  // Only update currentMonth if it's different from currentMonthFromStore
+  
   useEffect(() => {
     if (!isSameMonth(currentMonth, currentMonthFromStore)) {
       setCurrentMonth(currentMonthFromStore);
@@ -40,7 +40,7 @@ const DatePicker = () => {
   // 달력 이동 시 현재 표시되는 달을 업데이트
   const handleMonthChange = useCallback(
     (month: Date) => {
-      // Only dispatch if the month has actually changed
+      
       if (!isSameMonth(month, currentMonth)) {
         setCurrentMonth(month);
         dispatch(setSelectedMonth(month.toISOString()));
