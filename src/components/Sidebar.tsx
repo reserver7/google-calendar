@@ -2,15 +2,13 @@ import React from "react";
 import DatePicker from "./DatePicker";
 import MakeButton from "./MakeButton";
 
-const Sidebar: React.FC = () => {
+const Sidebar = () => {
   return (
-    <aside className="w-75 p-4 bg-white">
-      {/* "만들기" 버튼 */}
+    <div className="w-75 p-4 bg-white">
       <MakeButton />
 
-      {/* 달력 */}
       <DatePicker />
-    </aside>
+    </div>
   );
 };
 
